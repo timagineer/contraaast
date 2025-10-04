@@ -525,12 +525,12 @@
     dialog,
     dialog::backdrop {
         opacity: 0;
-        transition-property: display, overlay, opacity, transform;
+        transition-property: opacity, transform, background-color;
         transition-duration: var(--duration-2);
-        transition-behavior: allow-discrete;
+        transition-timing-function: var(--ease-quadratic);
     }
 
-    /* Backdrop styling and easing */
+    /* Backdrop styling */
     dialog::backdrop {
         background-color: hsla(0, 0%, 0%, 0.2);
         transition-timing-function: var(--ease-quadratic);
@@ -538,7 +538,7 @@
         /* subtle stagger */
     }
 
-    /* Foreground dialog styling and easing */
+    /* Foreground dialog styling */
     dialog {
         transform: translateY(5px) scale(0.99);
         transition-timing-function: var(--ease-out-quadratic);
@@ -552,6 +552,16 @@
 
     dialog[open]::backdrop {
         opacity: 1;
+    }
+
+    /* Closing state for smooth exit */
+    dialog.closing {
+        opacity: 0;
+        transform: translateY(5px) scale(0.99);
+    }
+
+    dialog.closing::backdrop {
+        opacity: 0;
     }
 
     /* Starting style for smooth enter */
