@@ -51,5 +51,6 @@ if(elements.runBtn){elements.runBtn.addEventListener('click',()=>{const colorPai
 if(elements.copyBtn){elements.copyBtn.addEventListener('click',copyColorInfo)}
 if(elements.showBtn&&elements.dialog){elements.showBtn.addEventListener("click",()=>{elements.dialog.showModal()})}
 if(elements.closeBtn&&elements.dialog){elements.closeBtn.addEventListener("click",()=>{closeDialogSmoothly(elements.dialog)})}
+if(elements.dialog){elements.dialog.addEventListener("cancel",(e)=>{e.preventDefault();closeDialogSmoothly(elements.dialog)})}
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',initializeWithDefaultColors);initializeWithDefaultColors()}catch(e){console.error("Error initializing application:",e)}}
 if(document.readyState==='interactive'||document.readyState==='complete'){initialize()}else{document.addEventListener('DOMContentLoaded',initialize)}
