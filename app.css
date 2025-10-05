@@ -518,7 +518,7 @@
     }
 
     .c-icon-fade-in {
-        transition-duration: 360ms;
+        transition-duration: var(--duration-3);
     }
 
     /* Base / off-stage */
