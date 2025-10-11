@@ -277,7 +277,7 @@
         direction: rtl;
         font: inherit;
         font-size: var(--type-scale-body);
-        font-weight: var(--type-weight-700);
+        font-weight: var(--type-weight-500);
         line-height: var(--type-leading-tight);
         text-wrap: nowrap;
         cursor: pointer;
