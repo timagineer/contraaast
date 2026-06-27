@@ -43,8 +43,8 @@ const foregroundHex=oklchToHex(foreground);const backgroundHex=oklchToHex(backgr
   /* CONTRAAAST  - WCAG AAA high contrast color-pairs */
   /* https://contraaast.timagineer.com */
   /* Contrast Ratio: ${ratio} */
-  --_color-foreground: var(--color-1, ${foreground}, ${foregroundHex});
-  --_color-background: var(--color-2, ${background}, ${backgroundHex});
+  --_color-foreground: var(--color-1, ${foreground});
+  --_color-background: var(--color-2, ${background});
 }`;navigator.clipboard.writeText(cssText).then(()=>{const copyIcon=elements.copyBtn?.querySelector("use");if(copyIcon){const originalXlink=copyIcon.getAttribute("href");copyIcon.classList.add('c-icon-fade-out');setTimeout(()=>{copyIcon.setAttribute("href","#icon-check");copyIcon.classList.remove('c-icon-fade-out');copyIcon.classList.add('c-icon-fade-in');setTimeout(()=>{copyIcon.classList.remove('c-icon-fade-in');copyIcon.classList.add('c-icon-fade-out');setTimeout(()=>{copyIcon.setAttribute("href",originalXlink);copyIcon.classList.remove('c-icon-fade-out');copyIcon.classList.add('c-icon-fade-in');setTimeout(()=>{copyIcon.classList.remove('c-icon-fade-in')},360)},240)},1000)},240)}}).catch(err=>{console.error("Failed to copy text: ",err)})}catch(e){console.error("Error copying color info:",e)}}
 function initialize(){try{loadStats();updateStatsDisplay();if(elements.invertBtn){elements.invertBtn.addEventListener('click',swapColors)}
 if(elements.runBtn){elements.runBtn.addEventListener('click',()=>{const colorPair=generateColorPair();updateColorDisplay(colorPair)})}
