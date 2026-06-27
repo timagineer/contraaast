@@ -39,7 +39,7 @@ function swapColors(){const foregroundStr=getComputedStyle(document.documentElem
 const[fgL,fgC,fgH]=fgDisplay.split(' ');const[bgL,bgC,bgH]=bgDisplay.split(' ');const foreground=`oklch(${fgL} ${fgC} ${fgH})`;const background=`oklch(${bgL} ${bgC} ${bgH})`;const ratio=parseFloat(elements.ratio?.textContent||"7.0");updateUIWithColors(background,foreground,ratio)}else{const ratio=parseFloat(elements.ratio?.textContent||"7.0");updateUIWithColors(backgroundStr,foregroundStr,ratio)}}
 function copyColorInfo(){try{const foregroundStr=getComputedStyle(document.documentElement).getPropertyValue('--color-1').trim();const backgroundStr=getComputedStyle(document.documentElement).getPropertyValue('--color-2').trim();const ratio=elements.ratio?.textContent;let foreground,background;if(!foregroundStr||!backgroundStr){const fgDisplay=elements.color1?.textContent;const bgDisplay=elements.color2?.textContent;if(!fgDisplay||!bgDisplay){console.error("Could not get color values for copying");return}
 const[fgL,fgC,fgH]=fgDisplay.split(' ');const[bgL,bgC,bgH]=bgDisplay.split(' ');foreground=`oklch(${fgL} ${fgC} ${fgH})`;background=`oklch(${bgL} ${bgC} ${bgH})`}else{foreground=foregroundStr;background=backgroundStr}
-const foregroundHex=oklchToHex(foreground);const backgroundHex=oklchToHex(background);const cssText=`:where(html) {
+const foregroundHex=oklchToHex(foreground);const backgroundHex=oklchToHex(background);const cssText=`:where(:host, :root) {
   /* CONTRAAAST  - WCAG AAA high contrast color-pairs */
   /* https://contraaast.timagineer.com */
   /* Contrast Ratio: ${ratio} */
